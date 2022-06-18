@@ -1,8 +1,13 @@
+body {
+  background-color: rgb(101, 44, 93);
+}
+
 .main {
   width: 80%;
   display: flex;
   justify-content: center;
   margin: 20px auto;
+  background-color: whitesmoke;
   /* flex-direction: column; */
 }
 .main > div {
@@ -11,7 +16,7 @@
   margin: 10px;
   border: 1px solid black;
   border-radius: 10px;
-  box-shadow: 5px 5px 5px 5px gray;
+  box-shadow: 3px 3px 5px 5px rgb(196, 91, 205);
   padding: 20px;
 }
 input {
