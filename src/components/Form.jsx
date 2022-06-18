@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 
 import "./Form.css";
+import Output from "./Output";
 const Form = () => {
   const [name, setName] = useState("");
   const [idea, setIdea] = useState("");
@@ -19,6 +20,7 @@ const Form = () => {
   const [mark, setMark] = useState("");
   const [pri, setPri] = useState("");
   const [avenues, setAvenues] = useState([]);
+  const [scaling, setScaling] = useState([]);
 
   const getName = (e) => {
     setName(e.target.value);
@@ -86,6 +88,15 @@ const Form = () => {
       ave.push(selectedItems[i].value);
     }
     setAvenues(ave);
+  };
+
+  const handleSelect1 = function (selectedItems) {
+    const ave = [];
+    for (let i = 0; i < selectedItems.length; i++) {
+      ave.push(selectedItems[i].value);
+    }
+
+    setScaling(ave);
   };
 
   return (
@@ -254,67 +265,124 @@ const Form = () => {
             </form>
             <br />
             <label>Aveneus of scaling up in future</label>
-            <input type="text" />
+            <form>
+              <select
+                multiple={true}
+                value={scaling}
+                onChange={(e) => {
+                  handleSelect1(e.target.selectedOptions);
+                }}
+              >
+                <option value="increasing the variety of product/service offering,">
+                  increasing the variety of product/service offering,{" "}
+                </option>
+                <option value="expanding the current offering to other ">
+                  expanding the current offering to other ,{" "}
+                </option>
+                <option value="geographies,">geographies</option>
+                <option value="opening more outlets,">
+                  opening more outlets
+                </option>
+                <option value="growing the scale of operation,">
+                  growing the scale of operation
+                </option>
+                <option value="building value-chain integrations">
+                  {" "}
+                  building value-chain integrations{" "}
+                </option>
+              </select>
+            </form>
           </form>
         </div>
         <div>
-          <p>
-            {" "}
-            <strong>{name}</strong> is looking <strong>{idea}</strong> to their
-            business of share market
-          </p>
-          <p>
-            This enterprise has been operational since <strong>{age}</strong>{" "}
-            years and has been serving its customers since then
-          </p>
-          <p>
-            This establishment offers products/services like{" "}
-            <strong>{product}</strong> to <strong>{offfered}</strong>
-          </p>
-          <p>
-            In addition, the enterprise shall also be invloved in{" "}
-            <strong>{secproduct}</strong>{" "}
-          </p>
-          <p>
-            other products of the enterprise shall include in{" "}
-            <strong>{procesedprod}</strong>{" "}
-          </p>
-          <p>
-            {" "}
-            <strong>{name}</strong> has relevant experience of
-            <strong>{relyears}</strong> years in the field
-          </p>
-          <p>
-            The entrepreneur <strong>{skill}</strong> in this field of work
-          </p>
-          <p>
-            The enterprise is uniquely positioned because of its{" "}
-            <strong>{unique}</strong>{" "}
-          </p>
-
-          <p>
-            The <strong>{local}</strong> is located in area of in a{" "}
-            <strong>{owner}</strong> property
-          </p>
-
-          <p>The size of the establishment is {estab} sq ft</p>
-          <p>
-            {" "}
-            <strong>{mark}</strong> and the range of products and target market
-            has been identified after that.
-          </p>
-          <p>
-            The enterprise shall focus on offering its products/services to{" "}
-            <strong>{pri}</strong> markets
-          </p>
-          <p>
-            Our marketing avenues to reach the targeted customers shall include-
-            <strong>{avenues}</strong> markets
-          </p>
+          <Output
+            name={name}
+            idea={idea}
+            age={age}
+            product={product}
+            offfered={offfered}
+            secproduct={secproduct}
+            procesedprod={procesedprod}
+            relyears={relyears}
+            unique={unique}
+            local={local}
+            owner={owner}
+            estab={estab}
+            mark={mark}
+            pri={pri}
+            avenues={avenues}
+            scaling={scaling}
+          />
         </div>
       </div>
     </>
   );
+
+  // function Output() {
+  //   return (
+  //     <>
+  //       <p>
+  //         {" "}
+  //         <strong>{name}</strong> is looking <strong>{idea}</strong> to their
+  //         business of share market
+  //       </p>
+  //       <p>
+  //         This enterprise has been operational since <strong>{age}</strong>{" "}
+  //         years and has been serving its customers since then
+  //       </p>
+  //       <p>
+  //         This establishment offers products/services like{" "}
+  //         <strong>{product}</strong> to <strong>{offfered}</strong>
+  //       </p>
+  //       <p>
+  //         In addition, the enterprise shall also be invloved in{" "}
+  //         <strong>{secproduct}</strong>{" "}
+  //       </p>
+  //       <p>
+  //         other products of the enterprise shall include in{" "}
+  //         <strong>{procesedprod}</strong>{" "}
+  //       </p>
+  //       <p>
+  //         {" "}
+  //         <strong>{name}</strong> has relevant experience of
+  //         <strong>{relyears}</strong> years in the field
+  //       </p>
+  //       <p>
+  //         The entrepreneur <strong>{skill}</strong> in this field of work
+  //       </p>
+  //       <p>
+  //         The enterprise is uniquely positioned because of its{" "}
+  //         <strong>{unique}</strong>{" "}
+  //       </p>
+
+  //       <p>
+  //         The <strong>{local}</strong> is located in area of in a{" "}
+  //         <strong>{owner}</strong> property
+  //       </p>
+
+  //       <p>
+  //         The size of the establishment is <strong>{estab}</strong> sq ft
+  //       </p>
+  //       <p>
+  //         {" "}
+  //         <strong>{mark}</strong> and the range of products and target market
+  //         has been identified after that.
+  //       </p>
+  //       <p>
+  //         The enterprise shall focus on offering its products/services to{" "}
+  //         <strong>{pri}</strong> markets
+  //       </p>
+  //       <p>
+  //         Our marketing avenues to reach the targeted customers shall include-
+  //         <strong>{avenues}</strong> markets
+  //       </p>
+  //       <p>
+  //         Our marketing avenues to reach the targeted customers shall include-
+  //         <strong>{scaling}</strong> markets
+  //       </p>
+  //     </>
+  //   );
+  // }
 };
 
 export default Form;
