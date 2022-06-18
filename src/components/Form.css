@@ -1,0 +1,36 @@
+.main {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+  /* flex-direction: column; */
+}
+.main > div {
+  width: 45%;
+  /* height: 600px; */
+  margin: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 5px gray;
+  padding: 20px;
+}
+input {
+  display: block;
+  margin-top: 10px;
+  /* margin-left: 10px; */
+  width: 85%;
+  padding: 6px;
+  /* margin-bottom: 0px; */
+}
+label {
+  /* margin-left: 20px; */
+  font-size: 12px;
+  font-weight: 900;
+  /* display: block; */
+  margin-top: 10px;
+}
+select {
+  /* margin-left: 10px; */
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
